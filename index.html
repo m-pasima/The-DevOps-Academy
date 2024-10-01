@@ -32,10 +32,6 @@
             border-radius: 5px;
             margin-top: 30px;
         }
-        h3 {
-            color: #1a73e8;
-            margin-top: 20px;
-        }
         ul {
             list-style-type: square;
             margin-left: 20px;
@@ -61,21 +57,46 @@
             font-size: 0.8em;
             color: #666;
         }
-        #tools {
-            background-color: #e9ecef;
+        .linux-section {
+            margin-top: 30px;
             padding: 20px;
+            background-color: #e0f7fa;
             border-radius: 8px;
-            margin-bottom: 20px;
         }
-        #tools h2 {
+        .linux-section h2 {
+            background-color: #00796b;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #00796b;
+            color: #fff;
+        }
+        td {
+            background-color: #e0f2f1;
+        }
+        a {
             color: #1a73e8;
+            text-decoration: none;
         }
-        #tools p img {
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-        .tools-category {
-            margin-bottom: 15px;
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -89,7 +110,6 @@
         </div>
 
         <!-- Section 1: DevOps Introduction -->
-          <!-- Section 1: DevOps Introduction -->
         <div class="section">
             <h2>1. DevOps Introduction (Understanding DevOps)</h2>
             <ul>
@@ -124,17 +144,15 @@
             <ul>
                 <li>Create an account in AWS</li>
                 <li>Create EC2 Instance in AWS</li>
-                <li>Intall Git and GitHub</li>
-                <li>Intall Mobaxterm</li>
-                <li>Intall Terraform</li>
-                <li>Create DockerHub Account</li> 
-                <li>Setup Jira and Slack Channels</li>
+                <li>Understand Linux Command Line</li>
+                <li>Linux File/Directory Structure</li>
+                <li>Linux Commands: mkdir, cat, service, userdel, ls, head, uptime, tree, find, sed, zip, grep, chmod, chown, etc.</li>
             </ul>
         </div>
 
         <!-- Section 3: Linux Commands -->
         <div class="section linux-section">
-            <h2>3. Linux - 20 Hours</h2>
+            <h2>3. Linux Commands 20 Hours</h2>
             <table>
                 <thead>
                     <tr>
@@ -180,10 +198,10 @@
                     <tr><td>chown</td><td>Change file owner and group</td></tr>
                     <tr><td>useradd</td><td>Create a new user</td></tr>
                     <tr><td>ping</td><td>Send ICMP echo requests to network hosts</td></tr>
-                    <!-- Add more commands as needed -->
                 </tbody>
             </table>
         </div>
+
 
         <!-- Section 4: Shell Scripting Introduction -->
         <div class="section">
