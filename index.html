@@ -39,23 +39,6 @@
       color: inherit;
     }
 
-    /* Fixed Side Images */
-    .side-image {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 150px;
-      opacity: 0.3;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .side-image.left {
-      left: -10px; /* Slightly off-screen */
-    }
-    .side-image.right {
-      right: -10px; /* Slightly off-screen */
-    }
-
     /* Navigation Bar */
     .navbar {
       position: sticky;
@@ -375,21 +358,10 @@
       .container {
         margin: 1rem;
       }
-      .side-image {
-        display: none;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Fixed Side Images -->
-  <div class="side-image left">
-    <img src="https://source.unsplash.com/150x300/?innovation" alt="Innovation" style="width:100%; border-radius:8px;">
-  </div>
-  <div class="side-image right">
-    <img src="https://source.unsplash.com/150x300/?startup" alt="Startup" style="width:100%; border-radius:8px;">
-  </div>
-
   <!-- Navigation Bar -->
   <nav class="navbar">
     <h1>The DevOps Academy</h1>
