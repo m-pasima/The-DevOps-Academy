@@ -1,464 +1,799 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The DevOps Academy Curriculum</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1a73e8;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h2 {
-            background-color: #1a73e8;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 30px;
-        }
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .contact {
-            background-color: #f1f1f1;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .contact p {
-            margin: 5px 0;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8em;
-            color: #666;
-        }
-        .linux-section {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e0f7fa;
-            border-radius: 8px;
-        }
-        .linux-section h2 {
-            background-color: #00796b;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.5em;
-            margin: 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background-color: #fff;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #00796b;
-            color: #fff;
-        }
-        td {
-            background-color: #e0f2f1;
-        }
-        a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The DevOps Academy Curriculum - Modern & Elaborate</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Resets and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: linear-gradient(135deg, #0052D4, #4364F7);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar h1 {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #d4d4d4;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')
+        no-repeat center center/cover;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content a.cta-btn {
+      display: inline-block;
+      background-color: #fbbc05;
+      color: #333;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .hero-content a.cta-btn:hover {
+      background-color: #f6ac00;
+    }
+
+    /* Container and General Layout */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Contact Info */
+    .contact {
+      background-color: #f1f1f1;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .contact p strong {
+      color: #1a73e8;
+    }
+
+    /* Section Titles */
+    h2.section-title {
+      background-color: #1a73e8;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 5px;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    /* Accordion Styles for Each Section */
+    .accordion {
+      margin: 1rem 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+    .accordion-header {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.2s ease;
+    }
+    .accordion-header:hover {
+      background-color: #f1f1f1;
+    }
+    .accordion-header h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #333;
+    }
+    .accordion-header .symbol {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-left: 1rem;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background-color: #ffffff;
+      padding: 0 1rem;
+    }
+    .accordion-content.open {
+      padding: 1rem;
+    }
+
+    .accordion-content ul {
+      list-style-type: square;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .accordion-content ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    /* Table inside the accordion for Linux Commands */
+    .accordion-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+    }
+    .accordion-content th,
+    .accordion-content td {
+      border: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    .accordion-content th {
+      background-color: #00796b;
+      color: #fff;
+    }
+    .accordion-content td {
+      background-color: #e0f2f1;
+    }
+    .accordion-content a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .accordion-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* Tools Section */
+    #tools {
+      margin: 2rem 0;
+    }
+    #tools h2 {
+      background-color: #1a73e8;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .tools-category {
+      margin-bottom: 1.5rem;
+    }
+    .tools-category h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-weight: 600;
+    }
+    .tools-category p img {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin: 2rem auto;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 1rem;
+    }
+    .footer p {
+      margin: 0.5rem 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .container {
+        margin: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>The DevOps Academy Curriculum</h1>
-        <div class="contact">
-            <p><strong>Email:</strong> info.devopsacademy@gmx.co.uk</p>
-            <p><strong>Location:</strong> Birmingham, UK</p>
-            <p><strong>Tel:</strong> 07533020152</p>
-        </div>
-
-        <!-- Section 1: DevOps Introduction -->
-        <div class="section">
-            <h2>1. DevOps Introduction (Understanding DevOps)</h2>
-            <ul>
-                <li>Software Development Life Cycles (SDLC)</li>
-                <li>Waterfall Model</li>
-                <li>Agile Methodology</li>
-                <li>Scrum Model</li>
-                <li>Iterations</li>
-                <li>What is DevOps?</li>
-                <li>Why DevOps? Automation</li>
-                <li>DevOps Importance</li>
-                <li>DevOps Model</li>
-                <li>DevOps Life Cycle</li>
-                <li>Market Trend and Career Scope for DevOps</li>
-                <li>DevOps Tools</li>
-                <li>Prerequisites:
-                    <ul>
-                        <li><a href="https://zoom.us/" target="_blank">Create a Zoom account</a></li>
-                        <li><a href="https://mobaxterm.mobatek.net/download.html" target="_blank">Download Mobaxterm</a></li>
-                        <li><a href="https://code.visualstudio.com/download" target="_blank">Download VS Code</a></li>
-                        <li><a href="https://aws.amazon.com/free/" target="_blank">Create an AWS account (Free Tier)</a></li>
-                        <li><a href="https://github.com/" target="_blank">Create a GitHub account</a></li>
-                        <li><a href="https://www.terraform.io/" target="_blank">Download Terraform</a></li>
-                        <li><a href="https://desktop.github.com/download/" target="_blank">Download GitHub Desktop</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Section 2: Installing Pre-requisite Software -->
-        <div class="section">
-            <h2>2. Installing Pre-requisite Software</h2>
-            <ul>
-                <li>Create an account in AWS</li>
-                <li>Create EC2 Instance in AWS</li>
-                <li>Understand Linux Command Line</li>
-                <li>Linux File/Directory Structure</li>
-                <li>Linux Commands: mkdir, cat, service, userdel, ls, head, uptime, tree, find, sed, zip, grep, chmod, chown, etc.</li>
-            </ul>
-        </div>
-
-        <!-- Section 3: Linux Commands -->
-        <div class="section linux-section">
-            <h2>3. Linux Commands 20 Hours</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Command</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>mkdir</td><td>Create directories</td></tr>
-                    <tr><td>cat</td><td>View and concatenate files</td></tr>
-                    <tr><td>service</td><td>Run system V init scripts</td></tr>
-                    <tr><td>userdel</td><td>Delete a user account</td></tr>
-                    <tr><td>ls</td><td>List directory contents</td></tr>
-                    <tr><td>head</td><td>Output the first part of files</td></tr>
-                    <tr><td>uptime</td><td>Show system uptime</td></tr>
-                    <tr><td>groupdel</td><td>Delete a group</td></tr>
-                    <tr><td>uname</td><td>Show system information</td></tr>
-                    <tr><td>tree</td><td>List contents of directories in a tree-like format</td></tr>
-                    <tr><td>tail</td><td>Output the last part of files</td></tr>
-                    <tr><td>last</td><td>Show listing of last logged-in users</td></tr>
-                    <tr><td>crontab</td><td>Manage cron jobs</td></tr>
-                    <tr><td>cd</td><td>Change directory</td></tr>
-                    <tr><td>watch</td><td>Execute a program periodically, showing output</td></tr>
-                    <tr><td>ps</td><td>Report a snapshot of current processes</td></tr>
-                    <tr><td>ssh</td><td>OpenSSH SSH client</td></tr>
-                    <tr><td>netstat</td><td>Network statistics</td></tr>
-                    <tr><td>pwd</td><td>Print working directory</td></tr>
-                    <tr><td>less</td><td>View file contents with pagination</td></tr>
-                    <tr><td>kill</td><td>Terminate processes</td></tr>
-                    <tr><td>scp</td><td>Secure copy (remote file copy)</td></tr>
-                    <tr><td>exit/logout/ctrl+d</td><td>Exit the shell</td></tr>
-                    <tr><td>rmdir</td><td>Remove directories</td></tr>
-                    <tr><td>top</td><td>Display Linux tasks</td></tr>
-                    <tr><td>rsync</td><td>Remote file and directory synchronization</td></tr>
-                    <tr><td>touch</td><td>Create empty files or update timestamps</td></tr>
-                    <tr><td>tr</td><td>Translate or delete characters</td></tr>
-                    <tr><td>sar</td><td>System activity report</td></tr>
-                    <tr><td>ssh-keygen</td><td>Generate SSH keys</td></tr>
-                    <tr><td>find</td><td>Search for files in a directory hierarchy</td></tr>
-                    <tr><td>zip/unzip</td><td>Compress and decompress files</td></tr>
-                    <tr><td>awk</td><td>Pattern scanning and processing language</td></tr>
-                    <tr><td>chmod</td><td>Change file modes or Access Control Lists</td></tr>
-                    <tr><td>chown</td><td>Change file owner and group</td></tr>
-                    <tr><td>useradd</td><td>Create a new user</td></tr>
-                    <tr><td>ping</td><td>Send ICMP echo requests to network hosts</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-
-        <!-- Section 4: Shell Scripting Introduction -->
-        <div class="section">
-            <h2>4. Shell Scripting Introduction</h2>
-            <ul>
-                <li>What is Shell?</li>
-                <li>Types of Shells</li>
-                <li>What is Shell Scripting?</li>
-                <li>First Shell Script Program</li>
-                <li>File Naming Conventions</li>
-                <li>Comments</li>
-                <li>Variables</li>
-                <li>Command Line Arguments</li>
-                <li>Escape Characters</li>
-                <li>String Manipulation</li>
-                <li>Arithmetic Operations</li>
-                <li>User Interaction using read command</li>
-                <li>Control Commands: if, for, while loop, switch case</li>
-                <li>Functions and Pipes</li>
-            </ul>
-        </div>
-
-        <!-- Section 5: Git and GitHub -->
-        <div class="section">
-            <h2>5. Git and GitHub - Versioning 14 hours</h2>
-            <ul>
-                <li>What is Git?</li>
-                <li>What is the VCS?</li>
-                <li>What is SCM?</li>
-                <li>What is Branch?</li>
-                <li>What is Tag?</li>
-                <li>Git Administration</li>
-                <li>Git Commands</li>
-                <li>Working with Git from a Developer Perspective</li>
-                <li>SSH Key Generation</li>
-                <li>PAT Creation</li>
-                <li>Cloning Repositories/Fork</li>
-                <li>Merging Branches</li>
-                <li>Branching Strategy</li>
-                <li>Best Practices for Releases/Code Commits</li>
-            </ul>
-        </div>
-
-        <!-- Section 6: Maven -->
-        <div class="section">
-            <h2>6. Maven  14 hours</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Features & Benefits of Maven</li>
-                <li>Installation (Maven Environment Setup)</li>
-                <li>Directory Structure</li>
-                <li>Content of pom.xml</li>
-                <li>Maven Repositories</li>
-                <li>Maven Life Cycles</li>
-                <li>Executing Examples</li>
-                <li>Maven Multi Modules (Parent & Child pom, Maven Profiles)</li>
-            </ul>
-        </div>
-
-        <!-- Section 7: Tomcat / JBoss -->
-        <div class="section">
-            <h2>7. Tomcat / JBoss 18 Hours</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Difference between App Server and Web Server</li>
-                <li>Understanding of Web Servers, App Servers, and Database Servers</li>
-                <li>Installation (Windows and Linux)</li>
-                <li>Directory Structure</li>
-                <li>Start/Stop Tomcat Server</li>
-                <li>User Creation</li>
-                <li>Roles</li>
-                <li>Port Number Change</li>
-                <li>Application Deployment (Admin Console & Webapps Folder)</li>
-                <li>Tomcat Tuning</li>
-                <li>Data Source Creation</li>
-            </ul>
-        </div>
-
-        <!-- Section 8: Apache HTTP Server -->
-        <div class="section">
-            <h2>8. Apache HTTP Server</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Installation</li>
-                <li>Directory Structure</li>
-                <li>Start HTTP Server</li>
-                <li>Deploy Static Web Application</li>
-            </ul>
-        </div>
-
-        <!-- Section 9: SonarQube -->
-        <div class="section">
-            <h2>9. SonarQube 15 Hours</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Pre-Requisites</li>
-                <li>Architecture</li>
-                <li>Installation</li>
-                <li>Change Port Number</li>
-                <li>Execution</li>
-                <li>Administration (Users, Projects, Tokens, Quality Profiles & Gates)</li>
-            </ul>
-        </div>
-
-        <!-- Section 10: Nexus -->
-        <div class="section">
-            <h2>10. Nexus 10 hours</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Installation</li>
-                <li>Password and Email Change for Admin User</li>
-                <li>Email Server Configuration</li>
-                <li>Port Number and Context Root Change</li>
-                <li>Nexus Directory Structure</li>
-                <li>Create Repositories</li>
-                <li>Integrate Maven with Nexus</li>
-                <li>User Creation</li>
-            </ul>
-        </div>
-
-        <!-- Section 11: Jenkins -->
-        <div class="section">
-            <h2>11. Jenkins 26 Hours</h2>
-            <ul>
-                <li>Introduction to CI/CD/CD</li>
-                <li>Installation on Linux Server</li>
-                <li>Create Maven Project (Freestyle and Maven Project Type)</li>
-                <li>Integrate Maven, Nexus, SonarQube, and Tomcat with Jenkins</li>
-                <li>Plugin Management and External Plugins Installation</li>
-                <li>Jenkins Security and Access Control</li>
-                <li>Pipeline and Multibranch Pipeline Jobs</li>
-                <li>Master/Slave Setup, Backup, and Migration</li>
-            </ul>
-        </div>
-
-        <!-- Section 12: Docker -->
-        <div class="section">
-            <h2>12. Docker - 18 Hours</h2>
-            <ul>
-                <li>Docker Introduction</li>
-                <li>Containerization Vs Virtualization</li>
-                <li>Docker Vs Virtual Machine</li>
-                <li>Docker Installation</li>
-                <li>Dockerfile, Docker Images, and Containers</li>
-                <li>Docker Networks and Volumes</li>
-                <li>Docker Private Repo and Compose</li>
-                <li>Docker Swarm</li>
-            </ul>
-        </div>
-
-        <!-- Section 12: Kubernetes -->
-        <div class="section">
-            <h2>13. Kubernetes - 27 Hours (CKA)</h2>
-            <ul>
-                <li>Kubernetes Introduction</li>
-                <li>Architecture</li>
-                <li>Kubernetes Cluster Setup (Self-Managed, KOPS, EKS using Terraform)</li>
-                <li>Kubernetes Objects (Pods, ReplicaSets, Deployments, etc.)</li>
-                <li>Service Types (ClusterIP, NodePort, Load Balancers)</li>
-                <li>Volumes, Persistent Volumes, ConfigMaps & Secrets</li>
-                <li>Monitoring with Prometheus and Grafana</li>
-            </ul>
-        </div>
-
-        <!-- Section 14: Ansible -->
-        <div class="section">
-            <h2>14. Ansible 20 Hours</h2>
-            <ul>
-                <li>Introduction</li>
-                <li>Architecture</li>
-                <li>SSH Key Generation</li>
-                <li>Ansible Ad-hoc Commands and Playbooks</li>
-                <li>Execution of Playbooks</li>
-                <li>Ansible Modules</li>
-                <li>Variables, Roles, and Dynamic Inventory</li>
-            </ul>
-        </div>
-
-        <!-- Section 15: AWS -->
-        <div class="section">
-            <h2>15. AWS 30 Hours</h2>
-            <ul>
-                <li>Cloud & AWS Infrastructure</li>
-                <li>Managed and Self-Managed Infrastructures</li>
-                <li>IaaS, PaaS, SaaS</li>
-                <li>EC2 Setup and Security Groups</li>
-                <li>EBS, EFS, S3 Essentials</li>
-                <li>VPC, IAM, AWS CLI Setup</li>
-            </ul>
-        </div>
-
-        <!-- Section 16: Infrastructure as Code -->
-        <div class="section">
-            <h2>16. Infrastructure as Code 20 Hours</h2>
-            <ul>
-                <li>Introduction to Terraform</li>
-                <li>Importance of Terraform</li>
-                <li>Installation on Windows</li>
-            </ul>
-        </div>
-
-        <!-- Section 17: Projects -->
-        <div class="section">
-            <h2>17. Projects</h2>
-            <ul>
-                <li>Jenkins Integration with GitHub, Maven, SonarQube, Nexus, and Tomcat</li>
-                <li>Jenkins Integration with Docker and Kubernetes</li>
-                <li>Real-life CI/CD Project Implementations</li>
-            </ul>
-        </div>
-
-        <!-- Tools Section with Logos -->
-        <section id="tools">
-            <h2>Tools</h2>
-            <div class="tools-category">
-                <h3>CI/CD and Automation</h3>
-                <p>
-                    <img src="https://img.shields.io/badge/-Jenkins-D24939?&style=for-the-badge&logo=Jenkins&logoColor=white" alt="Jenkins">
-                    <img src="https://img.shields.io/badge/-GitHub_Actions-2088FF?&style=for-the-badge&logo=GitHub-Actions&logoColor=white" alt="GitHub Actions">
-                    <img src="https://img.shields.io/badge/-Terraform-623CE4?&style=for-the-badge&logo=Terraform&logoColor=white" alt="Terraform">
-                    <img src="https://img.shields.io/badge/-Ansible-EE0000?&style=for-the-badge&logo=Ansible&logoColor=white" alt="Ansible">
-                    <img src="https://img.shields.io/badge/-Nexus-4E73B9?&style=for-the-badge&logo=Sonatype&logoColor=white" alt="Nexus">
-                    <img src="https://img.shields.io/badge/-SonarQube-4E9BCD?&style=for-the-badge&logo=SonarQube&logoColor=white" alt="SonarQube">
-                    <img src="https://img.shields.io/badge/-Tomcat-F8DC75?&style=for-the-badge&logo=Apache%20Tomcat&logoColor=black" alt="Tomcat">
-                    <img src="https://img.shields.io/badge/-Docker-2496ED?&style=for-the-badge&logo=Docker&logoColor=white" alt="Docker">
-                </p>
-            </div>
-            <div class="tools-category">
-                <h3>Cloud Platforms</h3>
-                <p>
-                    <img src="https://img.shields.io/badge/-AWS-232F3E?&style=for-the-badge&logo=Amazon-AWS&logoColor=white" alt="AWS">
-                    <img src="https://img.shields.io/badge/-GCP-4285F4?&style=for-the-badge&logo=Google-Cloud&logoColor=white" alt="GCP">
-                </p>
-            </div>
-            <div class="tools-category">
-                <h3>Containerization and Orchestration</h3>
-                <p>
-                    <img src="https://img.shields.io/badge/-Docker-2496ED?&style=for-the-badge&logo=Docker&logoColor=white" alt="Docker">
-                    <img src="https://img.shields.io/badge/-Kubernetes-326CE5?&style=for-the-badge&logo=Kubernetes&logoColor=white" alt="Kubernetes">
-                    <img src="https://img.shields.io/badge/-Helm-0F1689?&style=for-the-badge&logo=Helm&logoColor=white" alt="Helm">
-                </p>
-            </div>
-            <div class="tools-category">
-                <h3>Monitoring and Logging</h3>
-                <p>
-                    <img src="https://img.shields.io/badge/-Prometheus-E6522C?&style=for-the-badge&logo=Prometheus&logoColor=white" alt="Prometheus">
-                    <img src="https://img.shields.io/badge/-Grafana-F46800?&style=for-the-badge&logo=Grafana&logoColor=white" alt="Grafana">
-                    <img src="https://img.shields.io/badge/-CloudWatch-FF9900?&style=for-the-badge&logo=Amazon%20AWS&logoColor=white" alt="CloudWatch">
-                </p>
-            </div>
-        </section>
-
-        <div class="footer">
-            <p>© 2024 The DevOps Academy. All rights reserved.</p>
-        </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h1>The DevOps Academy</h1>
+    <div class="nav-links">
+      <a href="#contact-info">Contact</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#tools">Tools</a>
+      <a href="#footer">Footer</a>
     </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Unlock Your Full Potential with DevOps</h2>
+      <p>Join our comprehensive academy to master modern DevOps practices, from Linux fundamentals to advanced Kubernetes deployments. Accelerate your career with real-world projects and expert-led training.</p>
+      <a class="cta-btn" href="#curriculum">View Curriculum</a>
+    </div>
+  </section>
+
+  <div class="container" id="curriculum">
+    <!-- Contact Info -->
+    <div class="contact" id="contact-info">
+      <p><strong>Email:</strong> info.devopsacademy@gmx.co.uk</p>
+      <p><strong>Location:</strong> Birmingham, UK</p>
+      <p><strong>Tel:</strong> 07533020152</p>
+    </div>
+
+    <!-- Accordion-Based Sections -->
+    <!-- DevOps Introduction -->
+    <h2 class="section-title">1. DevOps Introduction (Understanding DevOps)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>In this section, you’ll explore the fundamentals of DevOps, its necessity in modern development pipelines, and how it evolved from traditional software development life cycles.</p>
+          <ul>
+            <li>Software Development Life Cycles (SDLC)</li>
+            <li>Waterfall Model</li>
+            <li>Agile Methodology & Scrum Model</li>
+            <li>What is DevOps?</li>
+            <li>Why DevOps? Importance & Automation</li>
+            <li>DevOps Life Cycle</li>
+            <li>Market Trends and Career Scope</li>
+            <li>Prerequisites:
+              <ul>
+                <li><a href="https://zoom.us/" target="_blank">Create a Zoom account</a></li>
+                <li><a href="https://mobaxterm.mobatek.net/download.html" target="_blank">Download Mobaxterm</a></li>
+                <li><a href="https://code.visualstudio.com/download" target="_blank">Download VS Code</a></li>
+                <li><a href="https://aws.amazon.com/free/" target="_blank">Create an AWS account (Free Tier)</a></li>
+                <li><a href="https://github.com/" target="_blank">Create a GitHub account</a></li>
+                <li><a href="https://www.terraform.io/" target="_blank">Download Terraform</a></li>
+                <li><a href="https://desktop.github.com/download/" target="_blank">Download GitHub Desktop</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Installing Pre-requisite Software -->
+    <h2 class="section-title">2. Installing Pre-requisite Software</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Learn to set up the core environment for DevOps training, including creating your AWS EC2 instance and diving into essential Linux administration commands.</p>
+          <ul>
+            <li>Create an account in AWS</li>
+            <li>Create EC2 Instance in AWS</li>
+            <li>Understand Linux Command Line & Directory Structure</li>
+            <li>Essential Linux Commands (mkdir, cat, etc.)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linux Commands -->
+    <h2 class="section-title">3. Linux Commands 20 Hours</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Master the commands needed to navigate, manage, and monitor Linux-based systems. These skills underpin much of DevOps automation and troubleshooting.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Command</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>mkdir</td><td>Create directories</td></tr>
+              <tr><td>cat</td><td>View and concatenate files</td></tr>
+              <tr><td>service</td><td>Run system V init scripts</td></tr>
+              <tr><td>userdel</td><td>Delete a user account</td></tr>
+              <tr><td>ls</td><td>List directory contents</td></tr>
+              <tr><td>head</td><td>Output the first part of files</td></tr>
+              <tr><td>uptime</td><td>Show system uptime</td></tr>
+              <tr><td>groupdel</td><td>Delete a group</td></tr>
+              <tr><td>uname</td><td>Show system information</td></tr>
+              <tr><td>tree</td><td>List contents of directories in a tree-like format</td></tr>
+              <tr><td>tail</td><td>Output the last part of files</td></tr>
+              <tr><td>last</td><td>Show listing of last logged-in users</td></tr>
+              <tr><td>crontab</td><td>Manage cron jobs</td></tr>
+              <tr><td>cd</td><td>Change directory</td></tr>
+              <tr><td>watch</td><td>Execute a program periodically, showing output</td></tr>
+              <tr><td>ps</td><td>Report a snapshot of current processes</td></tr>
+              <tr><td>ssh</td><td>OpenSSH SSH client</td></tr>
+              <tr><td>netstat</td><td>Network statistics</td></tr>
+              <tr><td>pwd</td><td>Print working directory</td></tr>
+              <tr><td>less</td><td>View file contents with pagination</td></tr>
+              <tr><td>kill</td><td>Terminate processes</td></tr>
+              <tr><td>scp</td><td>Secure copy (remote file copy)</td></tr>
+              <tr><td>exit/logout/ctrl+d</td><td>Exit the shell</td></tr>
+              <tr><td>rmdir</td><td>Remove directories</td></tr>
+              <tr><td>top</td><td>Display Linux tasks</td></tr>
+              <tr><td>rsync</td><td>Remote file and directory synchronization</td></tr>
+              <tr><td>touch</td><td>Create empty files or update timestamps</td></tr>
+              <tr><td>tr</td><td>Translate or delete characters</td></tr>
+              <tr><td>sar</td><td>System activity report</td></tr>
+              <tr><td>ssh-keygen</td><td>Generate SSH keys</td></tr>
+              <tr><td>find</td><td>Search for files in a directory hierarchy</td></tr>
+              <tr><td>zip/unzip</td><td>Compress and decompress files</td></tr>
+              <tr><td>awk</td><td>Pattern scanning and processing language</td></tr>
+              <tr><td>chmod</td><td>Change file modes or ACLs</td></tr>
+              <tr><td>chown</td><td>Change file owner and group</td></tr>
+              <tr><td>useradd</td><td>Create a new user</td></tr>
+              <tr><td>ping</td><td>Send ICMP echo requests to network hosts</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shell Scripting Introduction -->
+    <h2 class="section-title">4. Shell Scripting Introduction</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Automate repetitive tasks and configure systems by writing robust shell scripts. This section covers essential shell scripting techniques, from creating simple scripts to advanced command manipulations.</p>
+          <ul>
+            <li>What is Shell & Types of Shells</li>
+            <li>What is Shell Scripting?</li>
+            <li>First Shell Script Program & Naming Conventions</li>
+            <li>Comments, Variables, and Command Line Arguments</li>
+            <li>Arithmetic Operations & String Manipulation</li>
+            <li>Control Commands (if, for, while loop, switch case)</li>
+            <li>Functions, Pipes, and Redirection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Git and GitHub -->
+    <h2 class="section-title">5. Git and GitHub - Versioning (14 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Discover how to track and manage changes using Git, the foundation of collaborative development. You’ll also learn how to integrate your projects seamlessly with GitHub for version control.</p>
+          <ul>
+            <li>What is Git? VCS vs SCM</li>
+            <li>Branches, Tags & Git Administration</li>
+            <li>Git Commands & Developer Workflows</li>
+            <li>SSH Key Generation & PAT Creation</li>
+            <li>Cloning, Forking & Merging Branches</li>
+            <li>Branching Strategy & Best Practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maven -->
+    <h2 class="section-title">6. Maven (14 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>This section covers Maven’s project management and comprehension features. You’ll explore its build lifecycle, dependency management, and how to structure multi-module projects.</p>
+          <ul>
+            <li>Introduction to Maven & Benefits</li>
+            <li>Installation & Environment Setup</li>
+            <li>Maven Directory Structure & pom.xml</li>
+            <li>Maven Repositories & Life Cycles</li>
+            <li>Executing Examples & Multi Modules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tomcat / JBoss -->
+    <h2 class="section-title">7. Tomcat / JBoss (18 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Deploy and manage Java-based applications on Tomcat or JBoss. Learn how to configure user roles, change default ports, and optimize servers for high-performance web applications.</p>
+          <ul>
+            <li>Introduction & Difference between App Server & Web Server</li>
+            <li>Installation (Windows/Linux)</li>
+            <li>Directory Structure & Server Management</li>
+            <li>User Creation, Roles & Port Management</li>
+            <li>Application Deployment & Tomcat Tuning</li>
+            <li>Data Source Creation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apache HTTP Server -->
+    <h2 class="section-title">8. Apache HTTP Server</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Learn to configure the world’s most popular web server. You’ll deploy static content, set up virtual hosts, and integrate Apache HTTP with other applications.</p>
+          <ul>
+            <li>Introduction & Installation</li>
+            <li>Directory Structure</li>
+            <li>Start/Stop HTTP Server</li>
+            <li>Deploy Static Web Applications</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SonarQube -->
+    <h2 class="section-title">9. SonarQube (15 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Enhance code quality with SonarQube. Understand architectural components, perform static code analysis, and configure quality gates to keep your projects in check.</p>
+          <ul>
+            <li>Introduction & Pre-Requisites</li>
+            <li>Architecture & Installation</li>
+            <li>Change Port Number & Execution</li>
+            <li>Administration (Users, Projects, Tokens)</li>
+            <li>Quality Profiles & Gates</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nexus -->
+    <h2 class="section-title">10. Nexus (10 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Manage artifacts in a centralized repository. Explore repository creation, security settings, and how to integrate Nexus with your Maven build process.</p>
+          <ul>
+            <li>Introduction & Installation</li>
+            <li>Password/Email Configuration for Admin</li>
+            <li>Email Server Setup & Port Change</li>
+            <li>Directory Structure & Creating Repos</li>
+            <li>Integrate Maven with Nexus</li>
+            <li>User Creation & Permissions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jenkins -->
+    <h2 class="section-title">11. Jenkins (26 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Learn to automate builds and deployments using Jenkins. Dive into advanced pipelines, plugin management, security configurations, and mastering CI/CD concepts.</p>
+          <ul>
+            <li>Introduction to CI/CD/CD</li>
+            <li>Installation on Linux Server</li>
+            <li>Create Maven Projects & Integration with Nexus/SonarQube/Tomcat</li>
+            <li>Plugin Management</li>
+            <li>Security & Access Control</li>
+            <li>Pipeline & Multibranch Pipeline Jobs</li>
+            <li>Master/Slave Setup, Backup & Migration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docker -->
+    <h2 class="section-title">12. Docker (18 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Dive into containerization and streamline app deployment. Understand Dockerfiles, container management, networking, volumes, and orchestrating container deployments.</p>
+          <ul>
+            <li>Docker Introduction & Containerization vs Virtualization</li>
+            <li>Docker vs Virtual Machine & Installation</li>
+            <li>Dockerfile, Images & Containers</li>
+            <li>Docker Networks & Volumes</li>
+            <li>Private Repo & Docker Compose</li>
+            <li>Docker Swarm Basics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kubernetes -->
+    <h2 class="section-title">13. Kubernetes (27 Hours, CKA)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Orchestrate containers at scale with Kubernetes. Explore cluster setup, pods, replica sets, deployments, services, and advanced features like volumes, secrets, and monitoring.</p>
+          <ul>
+            <li>Kubernetes Introduction & Architecture</li>
+            <li>Cluster Setup (Self-Managed, KOPS, EKS with Terraform)</li>
+            <li>Kubernetes Objects (Pods, ReplicaSets, Deployments, etc.)</li>
+            <li>Service Types (ClusterIP, NodePort, Load Balancer)</li>
+            <li>Volumes, Persistent Volumes, ConfigMaps & Secrets</li>
+            <li>Monitoring with Prometheus & Grafana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ansible -->
+    <h2 class="section-title">14. Ansible (20 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Automate configuration management and application deployment with Ansible. Use playbooks, roles, and dynamic inventory for consistent and repeatable DevOps workflows.</p>
+          <ul>
+            <li>Introduction & Architecture</li>
+            <li>SSH Key Generation</li>
+            <li>Ad-hoc Commands & Playbooks</li>
+            <li>Ansible Modules & Variables</li>
+            <li>Roles & Dynamic Inventory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- AWS -->
+    <h2 class="section-title">15. AWS (30 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Build and manage cloud infrastructure with AWS. Learn the fundamentals of EC2, S3, IAM, VPC, and how to use AWS CLI to script and automate your deployments.</p>
+          <ul>
+            <li>Cloud & AWS Infrastructure Basics</li>
+            <li>Managed vs Self-Managed Infrastructures</li>
+            <li>IaaS, PaaS, SaaS Models</li>
+            <li>EC2 Setup & Security Groups</li>
+            <li>EBS, EFS & S3 Essentials</li>
+            <li>VPC, IAM & AWS CLI Setup</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infrastructure as Code -->
+    <h2 class="section-title">16. Infrastructure as Code (20 Hours)</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Learn to provision and manage infrastructure using Terraform. Experience the power of declaring infrastructure as code for consistent environments across development stages.</p>
+          <ul>
+            <li>Introduction to Terraform & Importance</li>
+            <li>Installation on Windows (CLI)</li>
+            <li>Core Concepts & Best Practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <h2 class="section-title">17. Projects</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3>Section Details</h3>
+          <span class="symbol">+</span>
+        </div>
+        <div class="accordion-content">
+          <p>Bring everything together with real-life CI/CD implementations. Reinforce your knowledge by building, automating, and deploying fully functioning applications and microservices.</p>
+          <ul>
+            <li>Jenkins + GitHub + Maven + SonarQube + Nexus + Tomcat</li>
+            <li>Jenkins + Docker + Kubernetes</li>
+            <li>End-to-End CI/CD Pipelines with Best Practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools Section with Logos -->
+    <section id="tools">
+      <h2>Tools</h2>
+      <div class="tools-category">
+        <h3>CI/CD and Automation</h3>
+        <p>
+          <img src="https://img.shields.io/badge/-Jenkins-D24939?&style=for-the-badge&logo=Jenkins&logoColor=white" alt="Jenkins">
+          <img src="https://img.shields.io/badge/-GitHub_Actions-2088FF?&style=for-the-badge&logo=GitHub-Actions&logoColor=white" alt="GitHub Actions">
+          <img src="https://img.shields.io/badge/-Terraform-623CE4?&style=for-the-badge&logo=Terraform&logoColor=white" alt="Terraform">
+          <img src="https://img.shields.io/badge/-Ansible-EE0000?&style=for-the-badge&logo=Ansible&logoColor=white" alt="Ansible">
+          <img src="https://img.shields.io/badge/-Nexus-4E73B9?&style=for-the-badge&logo=Sonatype&logoColor=white" alt="Nexus">
+          <img src="https://img.shields.io/badge/-SonarQube-4E9BCD?&style=for-the-badge&logo=SonarQube&logoColor=white" alt="SonarQube">
+          <img src="https://img.shields.io/badge/-Tomcat-F8DC75?&style=for-the-badge&logo=Apache%20Tomcat&logoColor=black" alt="Tomcat">
+          <img src="https://img.shields.io/badge/-Docker-2496ED?&style=for-the-badge&logo=Docker&logoColor=white" alt="Docker">
+        </p>
+      </div>
+      <div class="tools-category">
+        <h3>Cloud Platforms</h3>
+        <p>
+          <img src="https://img.shields.io/badge/-AWS-232F3E?&style=for-the-badge&logo=Amazon-AWS&logoColor=white" alt="AWS">
+          <img src="https://img.shields.io/badge/-GCP-4285F4?&style=for-the-badge&logo=Google-Cloud&logoColor=white" alt="GCP">
+        </p>
+      </div>
+      <div class="tools-category">
+        <h3>Containerization and Orchestration</h3>
+        <p>
+          <img src="https://img.shields.io/badge/-Docker-2496ED?&style=for-the-badge&logo=Docker&logoColor=white" alt="Docker">
+          <img src="https://img.shields.io/badge/-Kubernetes-326CE5?&style=for-the-badge&logo=Kubernetes&logoColor=white" alt="Kubernetes">
+          <img src="https://img.shields.io/badge/-Helm-0F1689?&style=for-the-badge&logo=Helm&logoColor=white" alt="Helm">
+        </p>
+      </div>
+      <div class="tools-category">
+        <h3>Monitoring and Logging</h3>
+        <p>
+          <img src="https://img.shields.io/badge/-Prometheus-E6522C?&style=for-the-badge&logo=Prometheus&logoColor=white" alt="Prometheus">
+          <img src="https://img.shields.io/badge/-Grafana-F46800?&style=for-the-badge&logo=Grafana&logoColor=white" alt="Grafana">
+          <img src="https://img.shields.io/badge/-CloudWatch-FF9900?&style=for-the-badge&logo=Amazon%20AWS&logoColor=white" alt="CloudWatch">
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <p>© 2024 The DevOps Academy. All rights reserved.</p>
+    <p>Empowering the next generation of DevOps professionals.</p>
+  </footer>
+
+  <!-- JavaScript for Accordion -->
+  <script>
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const accordionContent = header.nextElementSibling;
+        const symbol = header.querySelector('.symbol');
+
+        if (accordionContent.classList.contains('open')) {
+          accordionContent.style.maxHeight = 0;
+          accordionContent.classList.remove('open');
+          symbol.textContent = '+';
+        } else {
+          // Close any open accordion first (optional)
+          document.querySelectorAll('.accordion-content.open').forEach(openItem => {
+            openItem.style.maxHeight = 0;
+            openItem.classList.remove('open');
+            openItem.previousElementSibling.querySelector('.symbol').textContent = '+';
+          });
+          // Then open the clicked one
+          accordionContent.classList.add('open');
+          accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+          symbol.textContent = '−';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 
