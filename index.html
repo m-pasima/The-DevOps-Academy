@@ -125,6 +125,32 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Timer Side Box (Placed in Top Right of Header) */
+    .timer-side-box {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 300px;
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      text-align: center;
+      z-index: 3;
+    }
+    .timer-side-box .timer-item {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .timer-side-box .timer-item small {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
     /* Container and General Layout */
     .container {
       max-width: 1200px;
@@ -329,6 +355,7 @@
       align-items: center;
     }
     .tools-category p img {
+      margin: 0.5rem;
       transition: transform 0.3s ease;
     }
     .tools-category p img:hover {
@@ -379,6 +406,25 @@
       <h2>Unlock Your Full Potential with DevOps</h2>
       <p>Join our comprehensive academy to master modern DevOps practices—from Linux fundamentals to advanced Kubernetes deployments. Accelerate your career with real-world projects and expert-led training.</p>
       <a class="cta-btn" href="#curriculum">View Curriculum</a>
+    </div>
+    <!-- Timer Side Box Positioned at Top Right within the Hero -->
+    <div class="timer-side-box">
+      <div class="timer-item">
+        <span id="days-side">00</span>
+        <small>Days</small>
+      </div>
+      <div class="timer-item">
+        <span id="hours-side">00</span>
+        <small>Hours</small>
+      </div>
+      <div class="timer-item">
+        <span id="minutes-side">00</span>
+        <small>Minutes</small>
+      </div>
+      <div class="timer-item">
+        <span id="seconds-side">00</span>
+        <small>Seconds</small>
+      </div>
     </div>
   </section>
 
@@ -828,6 +874,16 @@
       </div>
     </div>
 
+    <!-- Additional Course Benefits Section -->
+    <h2 class="section-title">Additional Course Benefits</h2>
+    <div class="additional-info">
+      <ul>
+        <li><strong>Course Duration:</strong> 6 Months</li>
+        <li><strong>Interview Preparations Boot-Camp:</strong> 4 Weeks Intensive Training</li>
+        <li><strong>Career Support:</strong> Assistance with CV Writing, LinkedIn Setup, Portfolio Setup, Mentorship, and more</li>
+      </ul>
+    </div>
+
     <!-- Tools Section with Logos -->
     <section id="tools">
       <h2>Tools</h2>
@@ -852,7 +908,7 @@
         </p>
       </div>
       <div class="tools-category">
-        <h3>Containerization and Orchestration</h3>
+        <h3>Containerization & Orchestration</h3>
         <p>
           <img src="https://img.shields.io/badge/-Docker-2496ED?&style=for-the-badge&logo=Docker&logoColor=white" alt="Docker">
           <img src="https://img.shields.io/badge/-Kubernetes-326CE5?&style=for-the-badge&logo=Kubernetes&logoColor=white" alt="Kubernetes">
@@ -860,7 +916,7 @@
         </p>
       </div>
       <div class="tools-category">
-        <h3>Monitoring and Logging</h3>
+        <h3>Monitoring & Logging</h3>
         <p>
           <img src="https://img.shields.io/badge/-Prometheus-E6522C?&style=for-the-badge&logo=Prometheus&logoColor=white" alt="Prometheus">
           <img src="https://img.shields.io/badge/-Grafana-F46800?&style=for-the-badge&logo=Grafana&logoColor=white" alt="Grafana">
@@ -876,7 +932,33 @@
     <p>Empowering the next generation of DevOps professionals.</p>
   </footer>
 
-  <!-- JavaScript for Accordion -->
+  <!-- JavaScript for Countdown Timer in Side Box -->
+  <script>
+    // Set the date we're counting down to (March 10, 2025)
+    var countDownDate = new Date("Mar 10, 2025 00:00:00").getTime();
+
+    // Update the countdown every 1 second for the side timer
+    var sideCountdown = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days-side").innerHTML = days < 10 ? "0" + days : days;
+      document.getElementById("hours-side").innerHTML = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes-side").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds-side").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+      if (distance < 0) {
+        clearInterval(sideCountdown);
+        document.querySelector(".timer-side-box").innerHTML = "<p style='font-size:2.5rem; color:#ff0000;'>The program has started!</p>";
+      }
+    }, 1000);
+  </script>
+
+  <!-- JavaScript for Accordion Functionality -->
   <script>
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     accordionHeaders.forEach(header => {
