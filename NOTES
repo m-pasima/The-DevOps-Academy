@@ -1,0 +1,16 @@
+DEFAULT- MAIN OR MASTER
+git branch- to list yout branches
+git branch branch name - will create a branch
+git switch  branchName to swith to a new branch
+git checkout -b branchName will create and switch you to that new branch automatically
+
+- main/MASTER
+- feature
+- Bugfix
+- Release v1.00
+- Hotfix  security patches
+
+
+Git flow
+github flow
+trunk 
